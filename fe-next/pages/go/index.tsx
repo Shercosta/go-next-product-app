@@ -9,7 +9,7 @@ type Product = {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL_GO || "http://localhost:3001";
 
-export default function Home() {
+export default function WithGo() {
   const [products, setProducts] = useState<Product[]>([]);
   const [form, setForm] = useState({ name: "", description: "", price: "" });
 
@@ -38,20 +38,43 @@ export default function Home() {
   };
 
   return (
-    <div
-      style={{ padding: "2rem" }}
-      className="flex flex-col gap-4 items-center"
-    >
-      <h1>Shercosta's submission for the task</h1>
+    <div style={{ padding: "2rem" }}>
+      <h1>Product Management</h1>
 
-      <div className="flex gap-4">
-        <a className="bn39" href="/go">
-          <span className="bn39span">Use Go</span>
-        </a>
-        <a className="bn39" href="/node">
-          <span className="bn39span">Use Node</span>
-        </a>
+      <div style={{ marginBottom: "1rem" }}>
+        <input
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+          style={{ marginRight: "1rem" }}
+        />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+          style={{ marginRight: "1rem" }}
+        />
+        <input
+          name="price"
+          type="number"
+          placeholder="Price"
+          value={form.price}
+          onChange={handleChange}
+        />
+        <button onClick={handleSubmit} style={{ marginLeft: "1rem" }}>
+          Add Product
+        </button>
       </div>
+
+      <ul>
+        {products.map(({ id, name, description, price }) => (
+          <li key={id}>
+            <b>{name}</b> - {description} (Rp. {price.toFixed(3)})
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
