@@ -27,10 +27,11 @@ app.post("/products", (req, res) => {
     const { name, description, price } = req.body
 
     if (!name || !description || !price) {
-        if (price <= 0) {
-            return res.status(400).json({ error: "price must be greater than 0" })
-        }
         return res.status(400).json({ error: "name, description, and price are required" })
+    }
+
+    if (price <= 0) {
+        return res.status(400).json({ error: "price must be greater than 0" })
     }
 
     const stmt = db.prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)")
