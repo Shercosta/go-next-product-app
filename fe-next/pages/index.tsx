@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
+import Link from "next/link";
 import { FaNode } from "react-icons/fa6";
 import { RiResetLeftFill } from "react-icons/ri";
 import { SiGo } from "react-icons/si";
-
-type Product = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-};
 
 const API_URL_GO =
   process.env.NEXT_PUBLIC_API_URL_GO || "http://localhost:3001";
@@ -34,7 +27,7 @@ export default function Home() {
       <h1>Shercosta's submission for the task</h1>
 
       <div className="flex gap-4">
-        <a className="bn39" href="/go">
+        {/* <a className="bn39" href="/go">
           <span className="bn39span gap-2">
             Use <SiGo size={40} />
           </span>
@@ -43,7 +36,17 @@ export default function Home() {
           <span className="bn39span gap-2">
             Use <FaNode size={40} />
           </span>
-        </a>
+        </a> */}
+        <Link href="/go" className="bn39">
+          <span className="bn39span gap-2">
+            Use <SiGo size={40} />
+          </span>
+        </Link>
+        <Link href="/node" className="bn39">
+          <span className="bn39span gap-2">
+            Use <FaNode size={40} />
+          </span>
+        </Link>
       </div>
 
       <div>
