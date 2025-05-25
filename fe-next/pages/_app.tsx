@@ -6,6 +6,13 @@ import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
+export type Product = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+};
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
