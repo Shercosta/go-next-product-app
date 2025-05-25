@@ -1,0 +1,7 @@
+# Node
+node_modules/
+.env.local
+
+# Go
+be-go/go.sum
+be-go/bin/
