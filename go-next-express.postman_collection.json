@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "169f356f-f899-474a-a5ba-ba6e9c505a0c",
+		"name": "go-next-express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44298202",
+		"_collection_link": "https://shercosta.postman.co/workspace/My-Workspace~4fbf85f7-8ced-4605-8575-c139d65acd9b/collection/44298202-169f356f-f899-474a-a5ba-ba6e9c505a0c?action=share&source=collection_link&creator=44298202"
+	},
+	"item": [
+		{
+			"name": "go",
+			"item": [
+				{
+					"name": "post products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lorem\",\r\n    \"description\": \"Ipsum dolor sit amet\",\r\n    \"price\": 901\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go}}/products",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{go}}/products",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get reset",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{go}}/reset",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "node",
+			"item": [
+				{
+					"name": "get reset",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{go}}/reset",
+							"host": [
+								"{{go}}"
+							],
+							"path": [
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{node}}/products",
+							"host": [
+								"{{node}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lorem\",\r\n    \"description\": \"Ipsum dolor sit amet\",\r\n    \"price\": 901\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{node}}/products",
+							"host": [
+								"{{node}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logic",
+			"item": [
+				{
+					"name": "post calculate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"originalPrice\": 250,\r\n  \"discounts\": [\r\n    { \"type\": \"fixed\", \"value\": 20 },\r\n    { \"type\": \"percentage\", \"value\": 10 },\r\n    { \"type\": \"conditional\", \"condition\": 200, \"value\": 15 },\r\n    {\r\n      \"type\": \"tiered\",\r\n      \"tiers\": [\r\n        { \"min\": 0, \"max\": 99, \"value\": 5 },\r\n        { \"min\": 100, \"max\": 199, \"value\": 10 },\r\n        { \"min\": 200, \"max\": 9999, \"value\": 25 }\r\n      ]\r\n    },\r\n    { \"type\": \"cap\", \"maxDiscount\": 60 }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{logic_url}}/calculate",
+							"host": [
+								"{{logic_url}}"
+							],
+							"path": [
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "go",
+			"value": "localhost:3002",
+			"type": "string"
+		},
+		{
+			"key": "node",
+			"value": "localhost:3001",
+			"type": "string"
+		},
+		{
+			"key": "logic_url",
+			"value": "localhost:3003",
+			"type": "string"
+		}
+	]
+}
