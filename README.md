@@ -95,4 +95,15 @@ Frontend will be available at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
+logic-go
+logic-go is a directory for the second part of the test (discount calculator)
+
+you can run this by going to the folder logic-go, run go mod tidy, and run go run main.go
+
+---
+
+postman collection:
+
+you can see the postman collection for API Documentation from the postman json collection file
+
 @Shercosta

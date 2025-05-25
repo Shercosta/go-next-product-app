@@ -68,6 +68,11 @@ func main() {
 			return
 		}
 
+		if p.Name == "" || p.Description == "" || p.Price <= 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "name, description, and price are required"})
+			return
+		}
+
 		res, err := db.Exec(`INSERT INTO products (name, description, price) VALUES (?, ?, ?)`, p.Name, p.Description, p.Price)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
