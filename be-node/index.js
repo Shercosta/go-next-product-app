@@ -34,6 +34,13 @@ app.post("/products", (req, res) => {
     stmt.finalize()
 })
 
+app.get("/reset", (req, res) => {
+    db.run("DELETE FROM products", [], (err) => {
+        if (err) return res.status(500).json({ error: err.message })
+        res.json({ message: "products deleted" })
+    })
+})
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`be node listening on port ${PORT}`)

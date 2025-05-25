@@ -79,5 +79,10 @@ func main() {
 		c.JSON(http.StatusCreated, p)
 	})
 
+	r.GET("/reset", func(ctx *gin.Context) {
+		db.Exec("DELETE FROM products")
+		ctx.JSON(http.StatusOK, gin.H{"message": "products deleted"})
+	})
+
 	r.Run(":3002")
 }
