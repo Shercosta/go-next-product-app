@@ -5,3 +5,6 @@ node_modules/
 # Go
 be-go/go.sum
 be-go/bin/
+
+# .vscode
+__debug_bin*

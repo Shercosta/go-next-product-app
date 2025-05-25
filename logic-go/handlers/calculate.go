@@ -17,7 +17,7 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var priceToCalculate = req.OriginalPrice
-	var discountCap float64
+	var discountCap *float64
 	var totalDiscount float64
 
 	var res = response.Calculate{}
@@ -25,7 +25,7 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 	// find cap
 	for _, discount := range req.Discounts {
 		if discount.Type == "cap" {
-			discountCap = *discount.MaxDiscount
+			discountCap = discount.MaxDiscount
 		}
 	}
 
@@ -74,15 +74,17 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 			}(),
 			CappedAt: func() *float64 {
 				if discount.Type == "cap" {
-					return &discountCap
+					return discountCap
 				}
 				return nil
 			}(),
 		})
 
-		if totalDiscount >= discountCap {
-			priceToCalculate = req.OriginalPrice - discountCap
-			// break
+		if discountCap != nil {
+			if totalDiscount >= *discountCap {
+				priceToCalculate = req.OriginalPrice - *discountCap
+				// break
+			}
 		}
 	}
 
