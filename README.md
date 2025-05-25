@@ -1,6 +1,6 @@
 # 🛍️ Product Management App
 
-This repository contains a full-stack **Product Management** application with:
+This repository contains a full-stack **Product Management** application built with:
 
 - 🟨 A **Node.js (Express)** backend
 - 🟦 A **Go (Gin)** backend
@@ -22,10 +22,10 @@ This repository contains a full-stack **Product Management** application with:
 
 ### 🔧 Prerequisites
 
-Make sure you have the following installed:
+Make sure the following are installed on your machine:
 
-- **Node.js** version `20.x`
-- **Go** version `1.23.9`
+- **Node.js** `v20.x`
+- **Go** `v1.23.9`
 
 ---
 
@@ -37,7 +37,7 @@ npm install
 node index.js
 ```
 
-By default, it runs on: `http://localhost:3001`
+Runs on: `http://localhost:3001`
 
 ---
 
@@ -49,7 +49,7 @@ go mod tidy
 go run main.go
 ```
 
-By default, it runs on: `http://localhost:3002`
+Runs on: `http://localhost:3002`
 
 ---
 
@@ -59,27 +59,40 @@ By default, it runs on: `http://localhost:3002`
 cd fe-next
 ```
 
-Create a file named `.env.local` and add the following content:
+Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_API_URL_NODE=http://localhost:3001
 NEXT_PUBLIC_API_URL_GO=http://localhost:3002
 ```
 
-Then install dependencies and start the dev server:
+Then:
 
 ```bash
 npm install
 npm run dev
 ```
 
-The app will be available at: [http://localhost:3000](http://localhost:3000)
+Frontend will be available at: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🌐 Production Deployment
+
+> The app has been deployed to a VPS (via IdCloudHost):
+
+- **Frontend (Next.js)**: [http://103.171.85.36:3000](http://103.171.85.36:3000)
+- **Node.js Backend**: [http://103.171.85.36:3001](http://103.171.85.36:3001)
+- **Go Backend**: [http://103.171.85.36:3002](http://103.171.85.36:3002)
 
 ---
 
 ## ✅ Final Notes
 
-- Ensure both backends are running before launching the frontend.
-- You can switch between Go and Node API in the frontend by modifying the `.env.local`.
+- Make sure both backends are running before starting the frontend.
+- You can switch between Node.js and Go APIs by updating `.env.local` accordingly.
+- To keep backend services running on the VPS, consider using **PM2** (for Node) and background execution or systemd (for Go).
+
+---
 
 @Shercosta
