@@ -38,7 +38,7 @@ func TestCalculateHandler(t *testing.T) {
 	data, _ := io.ReadAll(res.Body)
 
 	var output struct {
-		FinalPrice float64 `json:"final_price"`
+		FinalPrice float64 `json:"finalPrice"`
 	}
 
 	err := json.Unmarshal(data, &output)
