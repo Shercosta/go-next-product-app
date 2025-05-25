@@ -72,6 +72,9 @@ export default function ProductList({
               />
               <p className="text-justify">{selectedProduct?.description}</p>
             </div>
+            <div className="absolute bottom-0 right-0 p-4">
+              <h2>Rp. {selectedProduct?.price.toFixed(3)}</h2>
+            </div>
           </div>
         </div>
       )}
