@@ -20,6 +20,8 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 	var discountCap float64
 	var totalDiscount float64
 
+	var res = response.Calculate{}
+
 	// find cap
 	for _, discount := range req.Discounts {
 		if discount.Type == "cap" {
@@ -56,16 +58,35 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 
 		totalDiscount = totalDiscount + discountAmount
 
+		res.AppliedDiscounts = append(res.AppliedDiscounts, response.DiscountsSubResponse{
+			Type: discount.Type,
+			Amount: func() *float64 {
+				if discount.Type != "cap" {
+					return &discountAmount
+				}
+				return nil
+			}(),
+			OriginalDiscountTotal: func() *float64 {
+				if discount.Type == "cap" {
+					return &totalDiscount
+				}
+				return nil
+			}(),
+			CappedAt: func() *float64 {
+				if discount.Type == "cap" {
+					return &discountCap
+				}
+				return nil
+			}(),
+		})
+
 		if totalDiscount >= discountCap {
 			priceToCalculate = req.OriginalPrice - discountCap
-			break
+			// break
 		}
 	}
 
-	var res = response.Calculate{
-		FinalPrice: priceToCalculate,
-		// AppliedDiscounts: req.Discounts,
-	}
+	res.FinalPrice = priceToCalculate
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
