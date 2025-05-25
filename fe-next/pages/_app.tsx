@@ -18,6 +18,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               icon={faHouse}
               size="2xl"
               onClick={() => router.push("/")}
+              className="cursor-pointer"
             />
           </div>
         </div>

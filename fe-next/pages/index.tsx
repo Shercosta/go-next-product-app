@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { FaNode } from "react-icons/fa6";
+import { SiGo } from "react-icons/si";
 
 type Product = {
   id: number;
@@ -46,10 +48,14 @@ export default function Home() {
 
       <div className="flex gap-4">
         <a className="bn39" href="/go">
-          <span className="bn39span">Use Go</span>
+          <span className="bn39span gap-2">
+            Use <SiGo size={40} />
+          </span>
         </a>
         <a className="bn39" href="/node">
-          <span className="bn39span">Use Node</span>
+          <span className="bn39span gap-2">
+            Use <FaNode size={40} />
+          </span>
         </a>
       </div>
     </div>
