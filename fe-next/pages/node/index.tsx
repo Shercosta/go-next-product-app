@@ -54,6 +54,11 @@ export default function WithNode() {
       return;
     }
 
+    if (productToSend.price <= 0) {
+      alert("price must be greater than 0");
+      return;
+    }
+
     const res = await fetch(`${API_URL}/products`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
