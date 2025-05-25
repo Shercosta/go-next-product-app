@@ -18,16 +18,6 @@ export default function WithNode() {
   const [showDetails, setShowDetails] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  const openDetails = (product: Product) => {
-    setSelectedProduct(product);
-    setShowDetails(true);
-  };
-
-  const closeDetails = () => {
-    setSelectedProduct(null);
-    setShowDetails(false);
-  };
-
   useEffect(() => {
     if (showDetails) {
       document.body.style.overflow = "hidden";

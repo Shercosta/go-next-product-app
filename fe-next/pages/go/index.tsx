@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { IoIosAddCircle, IoIosArrowBack } from "react-icons/io";
+import { IoIosAddCircle } from "react-icons/io";
 import { Product } from "../_app";
 import ProductList from "@/components/product-list";
 

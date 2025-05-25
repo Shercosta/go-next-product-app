@@ -24,7 +24,7 @@ export default function Home() {
       style={{ padding: "2rem" }}
       className="flex flex-col gap-4 items-center"
     >
-      <h1>Shercosta's submission for the task</h1>
+      <h1>Shercosta&apos;s submission for the task</h1>
 
       <div className="flex gap-4">
         {/* <a className="bn39" href="/go">
