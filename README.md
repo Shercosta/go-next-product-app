@@ -82,4 +82,4 @@ The app will be available at: [http://localhost:3000](http://localhost:3000)
 - Ensure both backends are running before launching the frontend.
 - You can switch between Go and Node API in the frontend by modifying the `.env.local`.
 
-Let me know if you'd like me to add production deployment instructions too.
+@Shercosta
