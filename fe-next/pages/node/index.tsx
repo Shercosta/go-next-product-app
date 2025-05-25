@@ -54,6 +54,16 @@ export default function WithNode() {
 
   const handleSubmit = async () => {
     const productToSend = { ...form, price: parseFloat(form.price) };
+
+    if (
+      !productToSend.name ||
+      !productToSend.description ||
+      !productToSend.price
+    ) {
+      alert("name, description, and price are required");
+      return;
+    }
+
     const res = await fetch(`${API_URL}/products`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

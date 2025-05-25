@@ -26,6 +26,10 @@ app.get("/products", (req, res) => {
 app.post("/products", (req, res) => {
     const { name, description, price } = req.body
 
+    if (!name || !description || !price) {
+        return res.status(400).json({ error: "name, description, and price are required" })
+    }
+
     const stmt = db.prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)")
     stmt.run(name, description, price, function (err) {
         if (err) return res.status(500).json({ error: err.message })

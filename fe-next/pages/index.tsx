@@ -47,7 +47,10 @@ export default function Home() {
       </div>
 
       <div>
-        <button className="flex gap-2 items-center" onClick={reset}>
+        <button
+          className="flex gap-2 items-center border border-gray-300 p-2 rounded-md bg-gray-100"
+          onClick={reset}
+        >
           Reset data <RiResetLeftFill size={30} />
         </button>
       </div>
