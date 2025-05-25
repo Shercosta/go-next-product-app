@@ -68,8 +68,13 @@ func main() {
 			return
 		}
 
-		if p.Name == "" || p.Description == "" || p.Price <= 0 {
+		if p.Name == "" || p.Description == "" || p.Price == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "name, description, and price are required"})
+			return
+		}
+
+		if p.Price <= 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "price must be greater than 0"})
 			return
 		}
 
